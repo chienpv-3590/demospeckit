@@ -1,50 +1,107 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report
+- Version change: 1.0.0 → 1.1.0 (minor: clarified markdown rendering, mobile responsive, explicit requirements)
+- Modified principles: II. Performance & User Experience (clarified mobile/responsive, markdown rendering), IV. Content Management (explicit markdown rendering)
+- Added sections: None
+- Removed sections: None
+- Templates requiring updates: plan-template.md (✅ aligned), spec-template.md (✅ aligned), tasks-template.md (✅ aligned)
+- Follow-up TODOs: None
+-->
+
+# MyBlog Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Content-First Architecture
+Every feature MUST enhance the core reading and writing experience. The blog MUST prioritize content accessibility, readability, and SEO optimization. All features MUST be user-centric and serve the primary goal of sharing quality content.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Performance & User Experience
+- Page load time MUST be under 3 seconds on average connection
+- Mobile-responsive design is MANDATORY for all pages (all layouts and components must adapt to mobile screens)
+- All content and UI MUST render correctly on mobile devices (no horizontal scroll, readable font sizes, touch-friendly controls)
+- Optimized images and lazy loading are REQUIRED
+- Progressive Web App (PWA) capabilities for offline reading are RECOMMENDED
+- Smooth navigation with minimal page reloads
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Security & Privacy
+- User authentication MUST use industry-standard encryption (bcrypt/JWT)
+- Input validation and sanitization on all user-generated content
+- Protection against XSS, CSRF, and SQL injection attacks
+- HTTPS is REQUIRED for all production environments
+- Privacy-first approach: minimal data collection, clear privacy policy
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Content Management
+- Markdown rendering is REQUIRED for all blog post authoring and display (all posts MUST support GitHub-flavored markdown, including code blocks, images, and tables)
+- Draft/Published status workflow
+- Categories and tags for content organization
+- Rich media support (images, videos, code snippets)
+- SEO metadata (title, description, keywords) for each post
+- Comment system with moderation capabilities
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Maintainability & Testing
+- Clean, modular code architecture with clear separation of concerns
+- Comprehensive unit tests for business logic
+- Integration tests for critical user flows
+- Code review REQUIRED before deployment
+- Documentation for setup, deployment, and API endpoints
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Technical Requirements
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### Technology Stack
+- **Backend**: Node.js/Python or similar modern framework
+- **Database**: PostgreSQL/MongoDB for content storage
+- **Frontend**: React/Vue/Next.js for dynamic UI
+- **Authentication**: JWT or session-based authentication
+- **Hosting**: Cloud-ready (Docker containerization recommended)
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+### Required Features
+1. **User Management**: Registration, login, profile management, role-based access (admin/author/reader)
+2. **Post Management**: Create, edit, delete, publish posts with markdown editor and markdown rendering
+3. **Media Management**: Upload, organize, and optimize images/files
+4. **Search Functionality**: Full-text search across posts and content
+5. **Social Features**: Share buttons, comments, likes/reactions
+6. **Analytics**: Basic traffic and engagement metrics dashboard
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### Performance Standards
+- Database queries optimized with proper indexing
+- Caching strategy for frequently accessed content
+- CDN integration for static assets
+- Pagination for long lists (posts, comments)
+- API rate limiting to prevent abuse
+
+## Development Workflow
+
+### Code Quality
+- Consistent code style enforced via linter (ESLint/Prettier)
+- Git workflow with feature branches and pull requests
+- Semantic versioning for releases
+- Automated testing in CI/CD pipeline
+
+### Deployment Process
+- Staging environment for testing before production
+- Automated backups for database and media files
+- Rollback capability for failed deployments
+- Environment-specific configuration (development/staging/production)
+
+### Content Guidelines
+- Blog posts MUST have meaningful titles and descriptions
+- Images MUST include alt text for accessibility
+- Code snippets MUST specify language for syntax highlighting
+- External links SHOULD open in new tabs
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution defines the core requirements and principles for MyBlog development. All features, changes, and deployments MUST align with these principles. Deviations require documented justification and approval.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+### Compliance Requirements
+- All new features MUST pass security review
+- Performance benchmarks MUST be met before production deployment
+- Accessibility standards (WCAG 2.1 Level AA) MUST be followed
+- Regular dependency updates for security patches
+
+### Amendment Process
+- Constitution changes REQUIRE documentation of rationale
+- Major principle changes REQUIRE stakeholder review
+- All amendments MUST be versioned and dated
+
+**Version**: 1.1.0 | **Ratified**: 2025-12-16 | **Last Amended**: 2025-12-16

@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global markdown styles */
+.prose {
+  @apply text-gray-800;
+}
+
+.prose h1 {
+  @apply text-4xl font-bold mb-4 mt-8 text-gray-900;
+}
+
+.prose h2 {
+  @apply text-3xl font-bold mb-3 mt-6 text-gray-900;
+}
+
+.prose h3 {
+  @apply text-2xl font-semibold mb-2 mt-4 text-gray-900;
+}
+
+.prose h4 {
+  @apply text-xl font-semibold mb-2 mt-3 text-gray-900;
+}
+
+.prose p {
+  @apply mb-4 leading-relaxed;
+}
+
+.prose a {
+  @apply text-primary hover:text-blue-600 underline transition-colors;
+}
+
+.prose ul,
+.prose ol {
+  @apply mb-4 ml-6;
+}
+
+.prose li {
+  @apply mb-2;
+}
+
+.prose code {
+  @apply bg-gray-800 text-gray-100 px-1.5 py-0.5 rounded text-sm font-mono;
+}
+
+.prose pre {
+  @apply bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto mb-4 mt-4;
+}
+
+.prose pre code {
+  @apply bg-transparent p-0;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-primary pl-4 italic text-gray-600 my-4;
+}
+
+.prose table {
+  @apply w-full border-collapse mb-4;
+}
+
+.prose th {
+  @apply bg-gray-100 border border-gray-300 px-4 py-2 text-left font-semibold;
+}
+
+.prose td {
+  @apply border border-gray-300 px-4 py-2;
+}
+
+.prose img {
+  @apply rounded-lg my-4 max-w-full h-auto;
+}
+
+.prose hr {
+  @apply my-8 border-gray-300;
+}
+
+/* Dark mode support for markdown */
+@media (prefers-color-scheme: dark) {
+  .prose {
+    @apply text-gray-200;
+  }
+
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4 {
+    @apply text-gray-100;
+  }
+
+  .prose code {
+    @apply bg-gray-700 text-gray-200;
+  }
+
+  .prose pre {
+    @apply bg-gray-800;
+  }
+
+  .prose blockquote {
+    @apply text-gray-400;
+  }
+
+  .prose th {
+    @apply bg-gray-800 border-gray-700;
+  }
+
+  .prose td {
+    @apply border-gray-700;
+  }
+}
+
+/* Utility classes */
+.container {
+  @apply max-w-7xl mx-auto;
+}
+
+/* Touch-friendly minimum sizes */
+button,
+a {
+  @apply min-h-[44px] min-w-[44px] inline-flex items-center justify-center;
+}
+
+/* Remove minimum sizes for inline elements */
+.prose a {
+  @apply min-h-0 min-w-0 inline;
+}
